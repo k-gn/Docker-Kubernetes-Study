@@ -134,7 +134,7 @@
 
 
 - **network create 명령어**
-  - docker network create [OPTIONS] NETWORK
+  - **docker network create [OPTIONS] NETWORK**
     - 도커 컨테이너끼리 이름으로 통신할 수 있는 가상 네트워크를 만든다.
     - wordpress와 mysql이 통신할 네트워크 생성하기
       - docker network create app-network
