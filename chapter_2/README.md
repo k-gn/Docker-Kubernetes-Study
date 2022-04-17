@@ -100,3 +100,102 @@
     - 중지된 컨테이너도 확인하려면 -a 옵션을 붙인다.
 
 
+- **stop 명령어**
+  - **docker stop [OPTIONS] CONTAINER [CONTAINER...]**
+    - 실행중인 컨테이너를 중지하는 명령어
+    - 하나 또는 여러개(띄어쓰기) 중지할 수 있다.
+
+
+- **rm 명령어**
+  - **docker rm [OPTIONS] CONTAINER [CONTAINER...]**
+    - 중지된 컨테이너를 완전히 제거하는 명령어
+
+
+- **logs 명령어**
+  - **docker logs [OPTIONS] CONTAINER**
+    - 컨테이너가 정상적으로 동작하는지 로그를 확인하는 것
+    - -f : 대기하면서 추가로그가 생기면 보여준다.
+    - --tail [line] : 아래에서 지정한 줄까지 로그를 보여준다. 
+
+
+- **images 명령어**
+  - **docker images [OPTIONS] [REPOSITORY[:TAG]]**
+    - 도커가 다운로드한 이미지 목록을 보는 명령어
+
+
+- **pull 명령어**
+  - **docker pull [OPTIONS] NAME[:TAG|@DIGEST]**
+    - 이미지를 다운로드하는 명령어 (docker pull ubuntu:18.04)
+
+
+- **rmi 명령어**
+  - **docker rmi [OPTIONS] IMAGE [IMAGE...]**
+    - 이미지를 삭제하는 방법 (컨테이너가 실행중인 이미지는 삭제 X)
+
+
+- **network create 명령어**
+  - docker network create [OPTIONS] NETWORK
+    - 도커 컨테이너끼리 이름으로 통신할 수 있는 가상 네트워크를 만든다.
+    - wordpress와 mysql이 통신할 네트워크 생성하기
+      - docker network create app-network
+
+
+- **network connect 명령어**
+  - **docker network connect [OPTIONS] NETWORK CONTAINER**
+    - 기존에 생성된 컨테이너에 네트워크를 추가
+    - mysql 컨테이너에 네트워크를 추가하기
+      - docker network connect app-network mysql
+
+
+- **network option 명령어**
+  - docker run -d -p 8080:80 \
+    --network=app-network \
+    -e WORDPRESS_DB_HOST=mysql \
+    -e WORDPRESS_DB_NAME=wp \
+    -e WORDPRESS_DB_USER=wp \
+    -e WORDPRESS_DB_PASSWORD=wp \
+    wordpress
+    - 워드프레스를 app-network에 속하게 하고 mysql을 이름으로 접근
+
+---
+
+- **volume**
+  - 컨테이너를 껏다가 키면 안에 데이터가 전부 사라진다.
+  - **volume mount (-v) 명령어**
+    - mysql을 삭제후에 다시 실행하면 데이터베이스 오류가 발생
+    - -v 옵션을 통해 내 디렉토리를 컨테이너의 디렉토리에 연결을 시켜 데이터를 유지할 수 있다.
+    - **-v /my/own/datadir:/var/lib/mysql**
+    - **docker stop mysql
+      docker rm mysql
+      docker run -d -p 3306:3306 \
+      -e MYSQL_ALLOW_EMPTY_PASSWORD=true \
+      --network=app-network \
+      --name mysql \
+      -v /Users/subicura/Workspace/github.com/subicura/docker-guide/ch02/mysql:/var/lib/mysql \
+      mysql:5.7**
+      
+
+---
+
+> **도커 컴포즈**
+
+- **docker-compose version** 
+  - 설치 / 버전 확인
+
+- **docker-compose.yml** 을 사용하여 쉽고, 이해하기 쉽고, 가독성 좋게 컨테이너를 띄울 수 있다.
+
+
+- **docker-compose up -d**
+  - docker compose를 이용하여 컨테이너 띄우기
+  - 자동으로 docker-compose.yml 파일을 읽어서 컨테이너를 생성한다.
+
+
+- **docker-compose down**
+  - docker compose를 이용하여 컨테이너 종료하기
+
+
+---
+
+> **그 외 도커 컴포즈 문법**
+
+- 자료 참조
