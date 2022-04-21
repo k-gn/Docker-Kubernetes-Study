@@ -18,3 +18,20 @@
 
 ![img.png](img.png)
 ![img_1.png](img_1.png)
+
+
+- FROM : 베이스 이미지 지정
+- COPY : 파일 또는 디렉토리 추가
+- RUN : 명령어 실행
+- WORKDIR : 작업 디렉토리 변경
+- EXPOSE : 컨테이너에서 사용하는 포트 정보
+- CM : 컨테이너 생성 시 실행할 명령어
+
+
+---
+
+> 도커 이미지 저장
+
+- docker login
+- docker push {ID}/example
+- docker pull {ID}/example
