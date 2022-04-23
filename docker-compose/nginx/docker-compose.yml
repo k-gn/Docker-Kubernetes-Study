@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx
+    ports:
+      - 60080:80
+    volumes:
+      - ./:/usr/share/nginx/html/
+
+
+# docker run -p 60080:80 -v ${pwd}:/usr/share/nginx/html/ nginx

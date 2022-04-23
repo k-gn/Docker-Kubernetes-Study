@@ -1,0 +1,48 @@
+version: '3'
+volumes:
+  postgres_data: {}
+services:
+  db:
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgres/data
+    environment:
+      - POSTGRES_DB=djangosample
+      - POSTGRES_USER=sampleuser
+      - POSTGRES_PASSWORD=samplesecret
+  django:
+    build:
+      context: .
+      dockerfile: ./compose/django/Dockerfile-dev
+    volumes:
+      - ./:/app/
+    command: ["./manage.py", "runserver", "0:8000"]
+    environment:
+     - DJANGO_DB_HOST=db
+    depends_on:
+      - db
+    restart: always
+    ports:
+      - 8000:8000
+
+
+# docker network create --driver bridge web-service
+
+# docker run --rm -d --name postgres \
+#   --network web-service \
+#   -p 5432:5432 \
+#   -e POSTGRES_DB=djangosample \
+#   -e POSTGRES_USER=sampleuser \
+#   -e POSTGRES_PASSWORD=samplesecret \
+#   postgres
+# ​
+# docker run -d --rm --name django1 \
+#   --network web-service \
+#   -p 8000:8000 \
+#   -e DJANGO_DB_HOST=db \
+#   --link postgres:db \
+#   django-sample
+# ​
+# docker kill django1 postgres
+# ​
+# docker network rm web-service
