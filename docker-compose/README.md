@@ -40,12 +40,14 @@
 - **services**
     - 실행할 컨테이너 정의
     - docker run --name test 와 같음
+  
     ![img_3.png](img_3.png)
     
 
 - **image**
     - 컨테이너에 사용할 이미지 이름과 태그
     - 태그 생략 시 latest (이미지 없으면 자동 pull) 
+  
     ![img_4.png](img_4.png)
       
 
@@ -53,24 +55,28 @@
     - 이미지 자체 빌드 후 사용
     - image 속성 대신 사용
     - 별도의 도커파일이 필요하다.
+  
     ![img_5.png](img_5.png)
 
 
 - **port**
     - 컨테이너와 연결할 포트들을 지정
     - {host port}:{container port}
+  
     ![img_6.png](img_6.png)
       
 
 - **environment**
     - 컨테이너에서 사용할 환경변수들을 지정
     - {환경변수 이름}:{값}
+  
     ![img_7.png](img_7.png)
 
 
 - **volumn**
     - 마운트 하려는 디렉터리들을 지정
     - {host dir}:{container dir}
+  
     ![img_8.png](img_8.png)
       
 
@@ -78,12 +84,14 @@
     - 다른 컨테이너와 연결   
     - 도커 컴포즈 내부에선 모든 컨테이너가 연결될 수 있어서 잘 사용은 안한다.
     - {연결할 컨테이너 이름}:{해당 컨테이너에서 참조할 이름}
+  
     ![img_9.png](img_9.png)
       
 
 - **depends_on**
     - 컨테이너 의존성 추가
     - 컨테이너의 실행순서
+  
     ![img_10.png](img_10.png)
 
 
