@@ -69,6 +69,7 @@
 - **environment**
     - 컨테이너에서 사용할 환경변수들을 지정
     - {환경변수 이름}:{값}
+    - 환경변수 우선순위 : 명령어 옵션 > yml > dockerfile
   
     ![img_7.png](img_7.png)
 
@@ -93,6 +94,15 @@
     - 컨테이너의 실행순서
   
     ![img_10.png](img_10.png)
+
+
+- **restart**
+    - 컨테이너가 예기치 않게 종료 되었을 때 동작 지정
+    - "no" : 다시 시작하지 않음 (default)
+    - always : 항상 다시 시작
+    - on-failure : 오작동으로 종료 시 다시 시작
+  
+    ![img_11.png](img_11.png)
 
 
 ---
