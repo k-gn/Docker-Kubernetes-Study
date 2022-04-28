@@ -112,24 +112,24 @@
 
 > 도커 컴포즈로 실행 및 종료
 
-- docker-compose up -d : 실행
+- **docker-compose up -d** : 실행
   - --build : 강제로 이미지 빌드
   - --force-recreate : 컨테이너 새로 생성
   - -d : 데몬 모드
-- docker-compose down : 종료
-- docker-compose pull [service] : 필요한 이미지 다운
-- docker-compose build [service] : 필요한 이미지 빌드 
-- docker-compose ps : 현재 실행중인 서비스 목록 보기
-- docker-compose logs [service] : 로그 보기 
+- **docker-compose down** : 종료
+- **docker-compose pull [service]** : 필요한 이미지 다운
+- **docker-compose build [service]** : 필요한 이미지 빌드 
+- **docker-compose ps** : 현재 실행중인 서비스 목록 보기
+- **docker-compose logs [service]** : 로그 보기 
   - -f : 로그 계속보기
-- docker-compose top : 서비스 내에서 실행중인 프로세스 목록 보기
-- docker-compose stop [service] : 실행중인 서비스 중지
-- docker-compose start [service] :  중지된 서비스 컨테이너 실행
-- docker-compose run [service] {command} : 해당 서비스에 컨테이너를 하나 더 실행
+- **docker-compose top** : 서비스 내에서 실행중인 프로세스 목록 보기
+- **docker-compose stop [service]**** : 실행중인 서비스 중지
+- **docker-compose start [service]** :  중지된 서비스 컨테이너 실행
+- **docker-compose run [service] {command}** : 해당 서비스에 컨테이너를 하나 더 실행
   - -e : 환경변수 설정
   - -p : 포트 설정
   - --rm : 컨테이너 종료 시 자동 삭제
-- docker-compose exec {container} {command} : 해당 서비스의 컨테이너에서 명령어를 실행
+- **docker-compose exec {container} {command}** : 해당 서비스의 컨테이너에서 명령어를 실행
   - -e : 환경변수 설정
-- docker-compose down [service] : stop + kill => 서비스를 멈추고 컨테이너 삭제
+- **docker-compose down [service]** : stop + kill => 서비스를 멈추고 컨테이너 삭제
   - -v : 도커 볼륨도 삭제
