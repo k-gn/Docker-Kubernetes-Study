@@ -4,8 +4,6 @@
 
 ## 도커 컴포즈란?
 
-- Fig -> Docker compose
-
 
 ![img_1.png](img_1.png)
 
